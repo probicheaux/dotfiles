@@ -121,7 +121,6 @@ export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
 export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
 export PATH="/root/.pyenv/bin:$PATH"
 export PERSONALKEYPATH="/home/peter/.ssh/id_rsa"
-eval "$(pyenv init -)"
 if hash crowdai-env 2>/dev/null; then eval "$(crowdai-env)"; fi
 
 launch_ssh_agent_once() {
@@ -144,7 +143,6 @@ launch_ssh_agent_once() {
 
 launch_ssh_agent_once
 export LD_LIBRARY_PATH="/home/peter/git/protobuf:$LD_LIBRARY_PATH"
-cat ~/.ssh/dockerpass.txt | docker login --username probicheaux --password-stdin
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/peter/git/google-cloud-sdk/path.bash.inc' ]; then . '/home/peter/git/google-cloud-sdk/path.bash.inc'; fi
