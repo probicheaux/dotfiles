@@ -1,4 +1,6 @@
 {
-    "hi": "/example/dir/",
-    "bi": "/example/dir2/"
+    ".bashrc": "/home/peter",
+    ".bash_aliases": "/home/peter",
+    "init.vim": "/home/peter/.config/nvim",
+    "coc-settings.json": "/home/peter/.config/nvim"
 }
