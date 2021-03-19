@@ -3,5 +3,6 @@
     ".bash_aliases": "/home/peter",
     "init.vim": "/home/peter/.config/nvim",
     "coc-settings.json": "/home/peter/.config/nvim",
-    ".tmux.conf": "/home/peter"
+    ".tmux.conf": "/home/peter",
+    "__bobthefish_colors.fish": "/home/peter/.local/share/omf/themes/bobthefish/functions"
 }
