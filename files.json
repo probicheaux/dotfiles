@@ -4,5 +4,6 @@
     "init.vim": "/home/peter/.config/nvim",
     "coc-settings.json": "/home/peter/.config/nvim",
     ".tmux.conf": "/home/peter",
-    "__bobthefish_colors.fish": "/home/peter/.local/share/omf/themes/bobthefish/functions"
+    "__bobthefish_colors.fish": "/home/peter/.local/share/omf/themes/bobthefish/functions",
+    "config.fish": "/home/peter/.config/fish/"
 }
