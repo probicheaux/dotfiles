@@ -2,5 +2,6 @@
     ".bashrc": "/home/peter",
     ".bash_aliases": "/home/peter",
     "init.vim": "/home/peter/.config/nvim",
-    "coc-settings.json": "/home/peter/.config/nvim"
+    "coc-settings.json": "/home/peter/.config/nvim",
+    ".tmux.conf": "/home/peter"
 }
