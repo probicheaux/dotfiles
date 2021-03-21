@@ -39,6 +39,7 @@ call plug#end()
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
 "If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
 "(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+
 if (has("nvim"))
   "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -47,10 +48,20 @@ endif
 "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
 " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
 if (has("termguicolors"))
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
 let g:onedark_termcolors=256
+if (has("autocmd") && !has("gui_running"))
+  augroup colors
+    autocmd!
+    let s:background = { "gui": "#2E3440", "cterm": "235", "cterm16": "0" }
+    autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
+  augroup END
+endif
+"onedark.vim override: Set a custom background color in the terminal
 let g:airline_theme='onedark'
 let g:fzf_preview_command = 'bat --color=always {-1}'
 let g:fzf_preview_lines_command = 'bat --color=always --number'

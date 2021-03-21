@@ -5,5 +5,7 @@
     "coc-settings.json": "/home/peter/.config/nvim",
     ".tmux.conf": "/home/peter",
     "__bobthefish_colors.fish": "/home/peter/.local/share/omf/themes/bobthefish/functions",
-    "config.fish": "/home/peter/.config/fish/"
+    "config.fish": "/home/peter/.config/fish/",
+    "alacritty.yml": "/home/peter/.config/alacritty"
+
 }
