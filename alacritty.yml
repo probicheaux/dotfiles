@@ -1268,3 +1268,4 @@ schemes:
       white:   '0xffffff'
 
 colors: *nord
+background_opacity: 1.0
