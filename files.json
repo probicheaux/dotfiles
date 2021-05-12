@@ -3,5 +3,6 @@
     ".bash_aliases": "/home/ubuntu",
     "init.vim": "/home/ubuntu/.config/nvim",
     "coc-settings.json": "/home/ubuntu/.config/nvim",
-    ".tmux.conf": "/home/ubuntu"
+    ".tmux.conf": "/home/ubuntu",
+    ".profile": "/home/ubuntu"
 }
