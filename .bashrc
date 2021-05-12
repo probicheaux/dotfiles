@@ -115,45 +115,29 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-export LDFLAGS="-L/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib"
-export CPPFLAGS="-I/home/linuxbrew/.linuxbrew/opt/isl@0.18/include"
-export PKG_CONFIG_PATH="/home/linuxbrew/.linuxbrew/opt/isl@0.18/lib/pkgconfig"
-export PATH="/root/.pyenv/bin:$PATH"
-export PERSONALKEYPATH="/home/peter/.ssh/id_rsa"
-if hash crowdai-env 2>/dev/null; then eval "$(crowdai-env)"; fi
 
-launch_ssh_agent_once() {
-   local AGENT_INFO_DIR="$HOME/.ssh/agent"
 
-   if [[ -f $AGENT_INFO_DIR/pid ]]; then
-     export SSH_AGENT_PID=$(cat $AGENT_INFO_DIR/pid)
-   fi
+if hash crowdai-env 2>/dev/null; then
+  eval "$(crowdai-env)"
+fi
 
-   if [[ -n $SSH_AGENT_PID ]] && lsof -p $SSH_AGENT_PID >/dev/null 2>&1; then
-     export SSH_AUTH_SOCK=$(cat $AGENT_INFO_DIR/auth-sock-path)
-   else
-     eval $(ssh-agent -s)
-     mkdir -p $AGENT_INFO_DIR
-     echo -n $SSH_AGENT_PID > $AGENT_INFO_DIR/pid
-     echo -n $SSH_AUTH_SOCK > $AGENT_INFO_DIR/auth-sock-path
-     ssh-add $PERSONALKEYPATH
-   fi
-}
+export INCA_DOCKER_IMAGE_BASE_TYPE=gpu
 
-launch_ssh_agent_once
-export LD_LIBRARY_PATH="/home/peter/git/protobuf:$LD_LIBRARY_PATH"
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/ubuntu/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/ubuntu/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/ubuntu/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/ubuntu/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/peter/git/google-cloud-sdk/path.bash.inc' ]; then . '/home/peter/git/google-cloud-sdk/path.bash.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/peter/git/google-cloud-sdk/completion.bash.inc' ]; then . '/home/peter/git/google-cloud-sdk/completion.bash.inc'; fi
-
-export BAT_THEME="TwoDark"
-export FZF_PREVIEW_PREVIEW_BAT_THEME="TwoDark"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export PATH=$PATH":/home/ubuntu/.linuxbrew/Cellar/"
+export FZF_DEFAULT_COMMAND='fd --hidden --exclude ".git" .'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

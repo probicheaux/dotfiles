@@ -1,6 +1,7 @@
 {
-    ".bashrc": "/home/peter",
-    ".bash_aliases": "/home/peter",
-    "init.vim": "/home/peter/.config/nvim",
-    "coc-settings.json": "/home/peter/.config/nvim"
+    ".bashrc": "/home/ubuntu",
+    ".bash_aliases": "/home/ubuntu",
+    "init.vim": "/home/ubuntu/.config/nvim",
+    "coc-settings.json": "/home/ubuntu/.config/nvim",
+    ".tmux.conf": "/home/ubuntu"
 }
