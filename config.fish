@@ -8,3 +8,5 @@ set PATH /usr/local/bin $PATH
 status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
+status is-login; and pyenv init --path | source
+pyenv init - | source
