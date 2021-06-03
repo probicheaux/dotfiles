@@ -10,6 +10,7 @@
     "typescript.tsx",
     "graphql"
   ],
+  "tabnine.priority": 200,
   "jedi.executable.command": "/home/peter/.pyenv/versions/3.6.12/envs/p36/bin/jedi-language-server",
   "jedi.enable": true,
   "jedi.startupMessage": false,
@@ -85,7 +86,6 @@
     "black": {
       "command": "black",
       "args": [
-        "-q",
         "--line-length",
         "100",
         "--target-version",
@@ -103,6 +103,10 @@
     "docformatter": {
       "command": "docformatter",
       "args": [
+        "--wrap-summaries",
+        "100",
+        "--wrap-descriptions",
+        "100",
         "-"
       ]
     }

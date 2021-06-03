@@ -7,6 +7,7 @@ set shiftwidth=4
 set expandtab
 set nowrap
 set number
+set nohlsearch
 let mapleader = " "
 
 call plug#begin('~/.vim/plugged')
@@ -31,9 +32,11 @@ Plug 'tsony-tsonev/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'mhinz/vim-startify'
 Plug 'unblevable/quick-scope'
-Plug 'jiangmiao/auto-pairs'
 Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -54,24 +57,30 @@ if (has("termguicolors"))
 endif
 
 let g:onedark_termcolors=256
-if (has("autocmd") && !has("gui_running"))
-  augroup colors
-    autocmd!
-    let s:background = { "gui": "#2E3440", "cterm": "235", "cterm16": "0" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
-  augroup END
-endif
+let g:palenight_termcolors=256
+
+"if (has("autocmd") && !has("gui_running"))
+"  augroup colors
+"    autocmd!
+"    let s:background = { "gui": "#1E3440", "cterm": "235", "cterm16": "0" }
+"    autocmd ColorScheme * call onedark#set_highlight("Normal", { "bg": s:background }) "No `fg` setting
+"  augroup END
+"endif
 "onedark.vim override: Set a custom background color in the terminal
 let g:airline_theme='onedark'
 let g:fzf_preview_command = 'bat --color=always {-1}'
 let g:fzf_preview_lines_command = 'bat --color=always --number'
 syntax on
-colorscheme onedark
-
+"colorscheme onedark
+colorscheme palenight
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>r <Plug>(coc-rename)
+nmap <silent> <c-j> <Plug>(coc-diagnostic-prev)
+nmap <silent> <c-k> <Plug>(coc-diagnostic-next)
+let g:coc_prompt_win_width = 30
 
 " Use K to show documentation in preview window
 nnoremap <silent> <leader>k :call <SID>show_documentation()<CR>
@@ -83,6 +92,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <F2> <Plug>(coc-rename)

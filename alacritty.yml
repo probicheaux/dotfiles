@@ -826,7 +826,7 @@ schemes:
       background: '0x292d3e'
       foreground: '0xd0d0d0'
     normal:
-      black:   '0x292d3e'
+      black:   '0x664C16'
       red:     '0xf07178'
       green:   '0xc3e88d'
       yellow:  '0xffcb6b'
@@ -1267,5 +1267,8 @@ schemes:
       cyan:    '0x00ffff'
       white:   '0xffffff'
 
-colors: *nord
+
+colors: *palenight
 background_opacity: 1.0
+font:
+  size: 16.0
