@@ -6,6 +6,6 @@
     ".tmux.conf": "/home/peter",
     "__bobthefish_colors.fish": "/home/peter/.local/share/omf/themes/bobthefish/functions",
     "config.fish": "/home/peter/.config/fish/",
-    "alacritty.yml": "/home/peter/.config/alacritty"
-
+    "alacritty.yml": "/home/peter/.config/alacritty",
+    "base_config": "/home/peter/.ssh/"
 }
