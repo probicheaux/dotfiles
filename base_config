@@ -25,10 +25,23 @@ Host discbot discordbot.us-central1-a.personal-261304
     CheckHostIP=no
     ForwardAgent yes
 
+Host website website.us-central1-a.personal-261304
+    HostName 34.67.21.64
+    IdentityFile /home/peter/.ssh/google_compute_engine
+    UserKnownHostsFile=/home/peter/.ssh/google_compute_known_hosts
+    HostKeyAlias=compute.8672016939257115847
+    IdentitiesOnly=yes
+    CheckHostIP=no
+    ForwardAgent yes
+
+
+# End of Google Compute Engine Section
 Host jet
     HostName 192.168.0.180
     user crowd
     ForwardAgent yes
 
-
-# End of Google Compute Engine Section
+Host officejet
+    HostName 192.168.87.42
+    user pllueca
+    ForwardAgent yes

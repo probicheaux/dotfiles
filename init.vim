@@ -10,9 +10,11 @@ set number
 set nohlsearch
 let mapleader = " "
 
+
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'joshdick/onedark.vim'
+Plug 'MrGuiMan/onedark-afterglow.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
@@ -36,7 +38,7 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'justinmk/vim-sneak'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'jiangmiao/auto-pairs'
+Plug 'mg979/vim-visual-multi'
 call plug#end()
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -71,8 +73,10 @@ let g:airline_theme='onedark'
 let g:fzf_preview_command = 'bat --color=always {-1}'
 let g:fzf_preview_lines_command = 'bat --color=always --number'
 syntax on
+
 "colorscheme onedark
 colorscheme palenight
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -118,6 +122,7 @@ command! ProjectFiles execute 'Files' s:find_git_root()
 nnoremap <silent> <leader>l     :<C-u>FzfPreviewLines --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
 
 nnoremap <silent> <leader>p      :<C-u>FzfPreviewGitFilesRpc<CR>
+nnoremap <silent> <leader>o     :<C-u>FzfPreviewProjectGrepRpc<Space>
 nnoremap <silent> <leader>s :Startify<CR>
 
 " Nerdtree
@@ -156,3 +161,10 @@ highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 
 " Cool prompt
 let g:sneak#prompt = '🔎 '
+set shell=/bin/bash
+let $SHELL = "/bin/bash"
+
+highlight CocUnderline gui=underline term=underline
+highlight CocErrorHighlight ctermfg=red  guifg=#c4384b gui=underline term=underline
+highlight CocWarningHighlight ctermfg=yellow guifg=#c4ab39 gui=underline term=underline
+

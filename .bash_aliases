@@ -20,7 +20,7 @@ dev-set () {
     export AWS_WORK_DEV_IP=$(get-instance-ip $AWS_WORK_DEV_ID)
     mv ~/.ssh/config ~/.ssh/config_backup
     cat ~/.ssh/base_config > ~/.ssh/config
-    get-ssh-config dev $AWS_WORK_DEV_DNS ~/.ssh/crowdai_ed25519 >> ~/.ssh/config
+    get-ssh-config dev $AWS_WORK_DEV_DNS ~/.ssh/peter.pem >> ~/.ssh/config
 }
 cpu-set () {
     export AWS_WORK_DEV_DNS_CPU=$(get-instance-dns $AWS_WORK_DEV_ID_CPU)
@@ -49,11 +49,18 @@ cpu-down() {
 }
 
 push-notebooks() {
-    rsync -avL --progress --exclude=html --exclude=.ipynb_checkpoints --exclude=.DS_Store /home/peter/git/inca/notebooks dev:inca/notebooks
+    rsync -avL --progress --exclude=html --exclude=.ipynb_checkpoints --exclude=.DS_Store /home/peter/git/inca/notebooks/____aaaaaaaaSCRATCH dev:inca/notebooks/____aaaaaaaaSCRATCH
 }
 
 pull-notebooks() {
-    rsync -avL --progress --exclude=html --exclude=.ipynb_checkpoints --exclude=.DS_Store dev:inca/notebooks /home/peter/git/inca/notebooks
+    rsync -avL --progress --exclude=html --exclude=.ipynb_checkpoints --exclude=.DS_Store dev:inca/notebooks/____aaaaaaaaSCRATCH /home/peter/git/inca/notebooks/____aaaaaaaaSCRATCH
+}
+push-notebooks-cpu() {
+    rsync -avL --progress --exclude=html --exclude=.ipynb_checkpoints --exclude=.DS_Store /home/peter/git/inca/notebooks/____aaaaaaaaSCRATCH cpu:inca/notebooks/____aaaaaaaaSCRATCH
+}
+
+pull-notebooks-cpu() {
+    rsync -avL --progress --exclude=html --exclude=.ipynb_checkpoints --exclude=.DS_Store cpu:inca/notebooks/____aaaaaaaaSCRATCH /home/peter/git/inca/notebooks/____aaaaaaaaSCRATCH
 }
 
 dev-ip() {

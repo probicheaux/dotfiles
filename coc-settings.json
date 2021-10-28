@@ -10,12 +10,12 @@
     "typescript.tsx",
     "graphql"
   ],
-  "tabnine.priority": 200,
-  "jedi.executable.command": "/home/peter/.pyenv/versions/3.6.12/envs/p36/bin/jedi-language-server",
+  "tabnine.priority": 50,
+  "jedi.executable.command": "/home/peter/.local/bin/jedi-language-server",
   "jedi.enable": true,
-  "jedi.startupMessage": false,
+  "jedi.startupMessage": true,
   "jedi.markupKindPreferred": "plaintext",
-  "jedi.trace.server": "off",
+  "jedi.trace.server": "verbose",
   "jedi.jediSettings.autoImportModules": [],
   "jedi.executable.args": [],
   "jedi.completion.disableSnippets": false,
@@ -33,11 +33,16 @@
     "__pycache__",
     "venv"
   ],
+  "diagnostic-languageserver.trace.server": "verbose",
   "diagnostic-languageserver.filetypes": {
     "python": "pylint"
   },
+  "diagnostic-languageserver.formatFiletypes": {
+    "python": ["docformatter", "isort", "black"]
+  },
   "diagnostic-languageserver.linters": {
     "pylint": {
+      "offsetColumnEnd": 1,
       "sourceName": "pylint",
       "command": "pylint",
       "args": [
@@ -58,11 +63,7 @@
           "message": 4
         }
       ],
-      "rootPatterns": [
-        ".git",
-        "pyproject.toml",
-        "setup.py"
-      ],
+      "rootPatterns": [".git", "pyproject.toml", "setup.py"],
       "securities": {
         "informational": "hint",
         "refactor": "info",
@@ -75,40 +76,18 @@
       "formatLines": 1
     }
   },
-  "diagnostic-languageserver.formatFiletypes": {
-    "python": [
-      "black",
-      "isort",
-      "docformatter"
-    ]
-  },
   "diagnostic-languageserver.formatters": {
     "black": {
       "command": "black",
-      "args": [
-        "--line-length",
-        "100",
-        "--target-version",
-        "py36",
-        "-"
-      ]
+      "args": ["--line-length", "100", "--target-version", "py36", "-"]
     },
     "isort": {
       "command": "isort",
-      "args": [
-        "-q",
-        "-"
-      ]
+      "args": ["-q", "-"]
     },
     "docformatter": {
       "command": "docformatter",
-      "args": [
-        "--wrap-summaries",
-        "100",
-        "--wrap-descriptions",
-        "100",
-        "-"
-      ]
+      "args": ["--wrap-summaries", "100", "--wrap-descriptions", "100", "-"]
     }
   }
 }
